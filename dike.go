@@ -29,7 +29,7 @@ type Options struct {
 
 func New(options *Options) *Dike {
 	if options == nil {
-		*options = Options{
+		options = &Options{
 			Out:     os.Stderr,
 			IsDebug: false,
 			Format:  Pretty,
