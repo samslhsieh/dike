@@ -1,0 +1,8 @@
+# ide
+.idea
+
+# env
+.env*
+
+# local db
+/db

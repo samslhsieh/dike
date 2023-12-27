@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  finance-job:
+    image: golang:1.21.1-alpine3.18
+    container_name: go-dike
+    working_dir: /go/src/dike
+    volumes:
+      - .:/go/src/dike
+    tty: true
+    networks:
+      - default
+
+networks:
+  default:
+    name: dike-network
+#    external: true
