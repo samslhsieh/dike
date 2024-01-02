@@ -99,14 +99,19 @@ func (h *PrettyHandler) Handle(ctx context.Context, r slog.Record) error {
 		return true
 	})
 
+	timeStr := r.Time.Format("[2006-01-02T15:05:05.000]")
+	msg := color.CyanString(r.Message)
+
+	if len(fields) == 0 {
+		h.l.Println(timeStr, level, msg)
+		return nil
+	}
+
 	//b, err := json.MarshalIndent(fields, "", "  ")
 	b, err := json.Marshal(fields)
 	if err != nil {
 		return err
 	}
-
-	timeStr := r.Time.Format("[2006-01-02T15:05:05.000]")
-	msg := color.CyanString(r.Message)
 
 	h.l.Println(timeStr, level, msg, color.WhiteString(string(b)))
 

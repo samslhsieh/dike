@@ -14,5 +14,7 @@ func main() {
 
 	d := dike.New(nil)
 
-	d.Logger.Info("test", "key", "value")
+	d.Logger.Info("test_1", "key_1", "value_1", "key_2", "value_2")
+
+	d.Logger.Info("test_2")
 }
